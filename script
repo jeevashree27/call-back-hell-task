@@ -1,0 +1,23 @@
+function countdownFrom10(callback) {
+        let count = 10;
+
+        function next() {
+            if (count >= 1) {
+                setTimeout(() => {
+                    document.getElementById('countdown').innerText = count;
+                    count--;
+                    next();
+                }, 1000);
+            } else {
+                callback();
+            }
+        }
+
+        next();
+
+    }
+    function displayMessage() {
+        document.getElementById('countdown').innerText = 'Happy Independence Day!';
+    }
+
+    countdownFrom10(displayMessage);
